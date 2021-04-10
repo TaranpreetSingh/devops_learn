@@ -1,1 +1,1 @@
-Learning Git for devops
+Learn different devops technologies with ME
