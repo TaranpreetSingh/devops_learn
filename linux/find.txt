@@ -1,0 +1,47 @@
+This file contain detail about find command in linux
+
+Find command is useful in varies way.
+It can help us to find file or directory and as well as we can perform operation on that searched or fetched file.
+Let see with example how it work.
+
+Suppose we need to find any file  with name 
+
+so the command will be -- find / -type f -name abc.txt
+this command will find abc.txt file in '/' directory i.e root folder of your OS.
+Now we will understand each part of command
+
+find -- this the command name
+/ -- this means the path where you want to search. If you want to search inside any other directory mention that path like /home/smile/Download or any other
+-type -- this tell what type of thing you have to find file or directory
+f -- it is input for -type , that we have to find file . If we have to find the directory then we have to find directory then it wiil be '-type d'
+-name -- this is used to pass the file or directory name which we have to find
+abc.txt -- is file name
+
+Now suppose you to delete files which are old then 10 days, then we will use below command
+find / -type f -name '*' -mtime +10 -exec rm -rf {} \; or find / -type f -name '*' -mtime +10 -delete
+
+this command will file which older then 10 days
+Now understand new paramter of command
+
+'*' -- this the file name. suppose you have to delete all file which are older then 10 days so you will use this
+-mtime -- this is used to mention the time for file or directory. As we create  or modify any file and directory in OS a time stamp is attached with it so it will find with timestamp
+
++10 -- this means older than 10 days. If we give -10 it will see the file which are modified in last 10 days
+
+-exec -- now when we find the file which are older then 10 days and we have to delete it, so find command provide this  option so we can perform any operation mentioned after -exec on the searched file or dir.
+
+rm -rf -- linux command to delete the file and directory in recursive and forcefully
+
+{} -- this will capture the output of the find command so we can perform operation on that file or dir which is mentioned after -exec
+
+\; -- it tell the -exec parameter where it operation or command end.
+
+-delete -- it is similar to -exec rm -rf {} \; which we have used but much faster then -exec
+
+
+So suppose you need to find file with have 777 permission , that can also be done by find command
+find / -type f -perm 777
+
+it will list all file with 77 permission
+
+-perm -- it used to search file with permission.
