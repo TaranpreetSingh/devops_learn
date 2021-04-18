@@ -1,0 +1,36 @@
+---
+
+- hosts: server
+  gather_facts: false
+  tasks:
+    - name: create ssh key
+      user:
+        name: "{{ ansible_user }}"
+        generate_ssh_key: true
+        force: no
+
+    - name: get key 
+      shell: 
+        cmd: cat ~/.ssh/id_rsa.pub 
+      register: ssh_key
+   
+    - name: print value
+      fetch:
+        src: ~/.ssh/id_rsa.pub
+        dest: ssh_detail/{{ansible_host|trim}}-id_rsa.pub
+        flat: true 
+
+    - name: copy ssh to all node
+      copy: 
+        src: ssh_detail/{{item}}-id_rsa.pub
+        dest: /tmp/ssh_detail/ 
+      with_items: 
+        - "{{ groups['server'] }}"
+
+    - name: copy ssh key it authorised key
+      shell: 
+        cmd: cat /tmp/ssh_detail/{{item}}-id_rsa.pub >> ~/.ssh/authorized_keys
+      with_items: 
+        - "{{ groups['server'] }} "
+
+
