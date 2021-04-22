@@ -15,10 +15,10 @@
 [db]
 192.168.60.8
 
-[web1]
+[web1group]
 192.168.60.6
 
-[web2]
+[web2group]
 192.168.60.7
 
 [web_hostname]
