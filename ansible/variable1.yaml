@@ -1,0 +1,8 @@
+---
+
+- hosts: web
+  tasks:
+    - name: replace file using variable name
+      copy: 
+        src: "{{stage}}.html"
+        dest: /var/www/html/index.html

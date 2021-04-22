@@ -1,0 +1,12 @@
+#### Install apache ########
+
+---
+
+- hosts: web
+  name: Install Apache server
+  become: true
+  tasks: 
+    - name: Installing apache
+      yum: 
+        - name: httpd
+          state: present

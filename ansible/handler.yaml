@@ -1,0 +1,17 @@
+---
+
+- hosts: web
+  tasks:
+  - name: copy apache config
+    copy: 
+      src: config/httpd.conf
+      dest: /etc/httpd/conf/
+    notify: 
+      - restart_apache
+  handlers: 
+    - name: restart_apache
+      service:
+        name: httpd
+        state: restarted
+
+

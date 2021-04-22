@@ -1,0 +1,2 @@
+ansible server -m ping
+ansible server -m yum -a "name=httpd state=present" -b
