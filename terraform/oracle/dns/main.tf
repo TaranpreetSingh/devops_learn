@@ -1,3 +1,6 @@
+variable "compartment_id" {
+  default=""
+}
 data "oci_load_balancer_load_balancers" "test_load_balancers" {
     #Required
     compartment_id = var.compartment_id
