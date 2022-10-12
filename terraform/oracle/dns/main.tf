@@ -12,9 +12,13 @@ data "oci_load_balancer_load_balancers" "test_load_balancers" {
 }
 data "oci_load_balancer_hostnames" "test_hostnames" {
     #Required
-    load_balancer_id = data.oci_load_balancer_load_balancers.test_load_balancer.id
+    load_balancer_id = data.oci_load_balancer_load_balancers.test_load_balancers.id
 }
 
 output "lb_detail"{
     value=data.oci_load_balancer_hostnames.test_hostnames[0].hostnames
+}
+
+output "lb_detail_2" {
+  value=data.oci_load_balancer_load_balancers.test_load_balancers.load_balancers 
 }
