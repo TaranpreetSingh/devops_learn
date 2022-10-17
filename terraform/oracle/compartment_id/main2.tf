@@ -12,7 +12,12 @@ variable "root_compartment_id" {
   id = var.root_compartment_id
 
 }
+data "oci_identity_compartments" "test_compartments" {
+    #Required
+    compartment_id = var.root_compartment_id
 
+
+}
 
 # Outputs
 # output "compartment_name" {
@@ -24,4 +29,7 @@ variable "root_compartment_id" {
 # }
 output "compartment_id" {
   value = oci_identity_compartment.tf_compartment
+}
+output "name" {
+  value=data.oci_identity_compartments.test_compartments
 }
