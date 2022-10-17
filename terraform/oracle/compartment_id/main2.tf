@@ -17,6 +17,7 @@ data "oci_identity_compartments" "test_compartments" {
     compartment_id = var.root_compartment_id
     filter{
       name="OPC-2"
+      value=data.oci_identity_compartments.test_compartments.name
     }
 
 }
