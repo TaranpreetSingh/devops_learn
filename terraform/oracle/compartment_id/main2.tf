@@ -7,9 +7,9 @@ variable "root_compartment_id" {
 
 
 # Resources
-resource "oci_identity_compartment" "tf_compartment" {
+ data "oci_identity_compartment" "tf_compartment" {
   # Required
-  compartment_id = var.root_compartment_id
+  id = var.root_compartment_id
 
 }
 
