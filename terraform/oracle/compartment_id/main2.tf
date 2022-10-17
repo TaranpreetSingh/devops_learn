@@ -15,10 +15,7 @@ variable "root_compartment_id" {
 data "oci_identity_compartments" "test_compartments" {
     #Required
     compartment_id = var.root_compartment_id
-    filter{
-      name="OPC-2"
-      value=data.oci_identity_compartments.test_compartments.name
-    }
+    name = "OPC-2"
 
 }
 
