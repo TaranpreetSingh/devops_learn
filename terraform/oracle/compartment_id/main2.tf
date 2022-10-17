@@ -28,7 +28,7 @@ data "oci_identity_compartments" "test_compartments" {
 #   value = oci_identity_compartment.tf_compartment.id
 # }
 output "compartment_id" {
-  value = oci_identity_compartment.tf_compartment
+  value = data.oci_identity_compartment.tf_compartment
 }
 output "name" {
   value=data.oci_identity_compartments.test_compartments
