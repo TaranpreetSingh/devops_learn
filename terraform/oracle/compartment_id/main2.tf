@@ -16,9 +16,12 @@ variable "root_compartment_id" {
 
 # Outputs
 output "compartment_name" {
-  value = oci_identity_compartment.tf_compartment.name
-}
+#   value = oci_identity_compartment.tf_compartment.name
+# }
 
+# output "compartment_id" {
+#   value = oci_identity_compartment.tf_compartment.id
+# }
 output "compartment_id" {
-  value = oci_identity_compartment.tf_compartment.id
+  value = oci_identity_compartment.tf_compartment
 }
