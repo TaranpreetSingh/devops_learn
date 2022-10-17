@@ -15,7 +15,7 @@ variable "root_compartment_id" {
 
 
 # Outputs
-output "compartment_name" {
+# output "compartment_name" {
 #   value = oci_identity_compartment.tf_compartment.name
 # }
 
